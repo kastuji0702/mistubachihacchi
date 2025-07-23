@@ -1,0 +1,19 @@
+a.cp_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  text-decoration: none;
+  color: #FF5722;
+  background: #CCD000;
+  border: double 4px #FF5722;
+  border-radius: 50%;
+  transition: .6s ease-in-out;
+}
+a.cp_btn:hover {
+  transform: rotateY(360deg);
+  color: #fff;
+  background:#FF5722;
+  border: double 4px #CCD000;
+}
