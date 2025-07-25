@@ -192,10 +192,14 @@ header {
 
 
 // かつじ担当コード（7/26)反映されない理由（コンパイル方法）がわからない為、下はコメントアウト中
-// footer{
-//     background-color: #4A9AA6;
+footer{
+    background-color: #4A9AA6;
+    text-align: center;
+    width: 100%;
 
-//     .copyright{
-//         color:#fff;
-//     }
-// }
+    .copyright{
+        font-size: 0.5rem;
+        color: #fff;
+        padding: 1rem 0;
+    }
+}
