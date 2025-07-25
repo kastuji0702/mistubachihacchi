@@ -1,0 +1,12 @@
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ccd000, #e5ea03);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sec-bg {
+  background-color: yellow;
+}
+/*# sourceMappingURL=Sass.css.map */
