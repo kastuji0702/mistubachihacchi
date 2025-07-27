@@ -173,6 +173,72 @@ header .toggle_btn span:nth-child(3) {
   background-color: yellow;
 }
 
+.faq__item {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 10px;
+  border-radius: 25px;
+  box-shadow: 0 7px 15px -5px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  overflow: hidden;
+}
+.faq__item[open] .faq__summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+.faq__summary {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 1em 3.5em 1em 1.5em;
+  color: #333333;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.faq__summary::-webkit-details-marker {
+  display: none;
+}
+.faq__summary::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 1.5em;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  background-color: transparent;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease-in-out, right 0.3s ease-in-out;
+  background-image: linear-gradient(to top, #333, #333), linear-gradient(to top, #333, #333);
+  background-size: 2px 12px, 12px 2px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.faq__q-mark {
+  color: #007bff;
+  margin-right: 0.5em;
+  font-size: 1.1em;
+}
+.faq__answer {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 1.5em;
+  color: #333333;
+  transition: height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
+  display: flex;
+  align-items: baseline;
+}
+.faq__a-mark {
+  color: #dc3545;
+  margin-right: 0.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
 footer {
   background-color: #4A9AA6;
   text-align: center;
@@ -180,6 +246,5 @@ footer {
 }
 footer .copyright {
   font-size: 0.5rem;
-  color: #fff;
   padding: 1rem 0;
 }/*# sourceMappingURL=Sass.css.map */
