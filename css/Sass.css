@@ -231,7 +231,7 @@ header .container .toggle_btn span:nth-child(3) {
 .faq__list {
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto 5%;
 }
 .faq__item {
   margin-bottom: 10px;
@@ -297,6 +297,61 @@ header .container .toggle_btn span:nth-child(3) {
   font-weight: 600;
 }
 
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  min-width: 300px;
+  max-width: 600px;
+  padding: 0.8em;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: #8BC34A;
+  border-radius: 50px;
+  border: 3px solid #000;
+  overflow: hidden;
+  z-index: 0;
+  margin: 0 auto 5%;
+}
+.btn__image {
+  width: 50%;
+}
+.btn__text {
+  font-size: 2rem;
+}
+.btn:hover {
+  color: #8BC34A;
+}
+.btn:hover::after {
+  height: 450%;
+  opacity: 1;
+}
+.btn:active::after {
+  height: 350%;
+  opacity: 1;
+}
+.btn::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  height: 0;
+  width: 100%;
+  background: #fff;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: 0.3s;
+  z-index: -1;
+}
+
+@media (max-width: 450px) {
+  .btn__text {
+    font-size: 1.5rem;
+  }
+}
 footer {
   background-color: #4a9aa6;
   text-align: center;
