@@ -254,6 +254,49 @@ header {
 }
 
 // かつじ担当コード（7/26)
+.price {
+  &__content {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 950px;
+    padding: 1rem auto;
+    border: 3px solid #6BC1CE;
+    border-radius: 50px;
+
+    @media (max-width: 768px) {
+      width: 90%;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 1rem;
+    }
+  }
+
+  &__main {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #F0595B;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+
 .faq {
   &__list {
     width: 100%;

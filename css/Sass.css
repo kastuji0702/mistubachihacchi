@@ -228,6 +228,49 @@ header .container .toggle_btn span:nth-child(3) {
   background-color: yellow;
 }
 
+.price__content {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 950px;
+  padding: 1rem auto;
+  border: 3px solid #6BC1CE;
+  border-radius: 50px;
+}
+@media (max-width: 768px) {
+  .price__content {
+    width: 90%;
+  }
+}
+.price__text {
+  text-align: center;
+  font-size: 2rem;
+}
+@media (max-width: 768px) {
+  .price__text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 450px) {
+  .price__text {
+    font-size: 1rem;
+  }
+}
+.price__main {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #F0595B;
+}
+@media (max-width: 768px) {
+  .price__main {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 450px) {
+  .price__main {
+    font-size: 2rem;
+  }
+}
+
 .faq__list {
   width: 100%;
   max-width: 500px;
