@@ -253,7 +253,90 @@ header {
     background-color: yellow;
 }
 
-// かつじ担当コード（7/26)反映されない理由（コンパイル方法）がわからない為、下はコメントアウト中
+// かつじ担当コード（7/26)
+.faq {
+  &__list {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+    border-radius: 25px;
+    box-shadow: 0 7px 15px -5px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    overflow: hidden;
+
+    &[open] {
+      .faq__summary::after {
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+  }
+
+  &__summary {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 1em 3.5em 1em 1.5em;
+    color: #333333;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 1.5em;
+      width: 22px;
+      height: 22px;
+      border: 2px solid #333;
+      border-radius: 50%;
+      background-color: transparent;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease-in-out, right 0.3s ease-in-out;
+      background-image:
+        linear-gradient(to top, #333, #333),
+        linear-gradient(to top, #333, #333);
+      background-size: 2px 12px, 12px 2px;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+
+  &__q-mark {
+    color: #007bff;
+    margin-right: 0.5em;
+    font-size: 1.1em;
+  }
+
+  &__answer {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0 1.5em;
+    color: #333333;
+    transition: height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__a-mark {
+    color: #dc3545;
+    margin-right: 0.5em;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+}
+
 footer {
     background-color: #4a9aa6;
     text-align: center;
