@@ -242,16 +242,100 @@ header {
 
 // 2025/07/25 すずさんの担当コード
 .section-title {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 52px;
+    font-weight: 900;
     background: linear-gradient(135deg, #ccd000, #e5ea03);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin-left: 4%;
+}
+
+.sub-title{
+  margin-left: 4%;
+  font-weight: bold;
 }
 
 .sec-bg {
-    background-color: yellow;
+  background-color: #edf2e5;
+  width: 88%;
+  margin: 0 auto;
+  padding: 2%;
 }
+
+.number {
+  font-size: 32px; 
+  font-weight: bold;
+  color: #ccd000;
+  
+  span{
+      font-size: 16px;
+      color: #333;
+  }
+
+}
+
+.contents{
+  display: flex;
+
+    h3{
+      color: #ccd000;
+    }
+    img{
+      width: 20%;
+    }
+
+}
+
+/* ふきだしのところ */
+
+.chat-section {
+  text-align: center;
+  margin-top: 60px;
+  /* display: flex;
+  flex-direction: column;
+  gap: 30px; */
+
+  .chat-item {
+    display: flex;
+    align-items: center;
+
+    .chat-bubble {
+      width: 70%;
+      background-color: #fff;
+      border: 2px solid #ccd000;
+      border-radius: 50px;
+      padding: 20px 30px;
+      margin-block: 30px;
+    
+    }
+
+    .chat-icon {
+      width: 50px;
+    }
+
+    .chat-icon.left {
+      margin-right: 10px;
+    }
+    
+    .chat-icon.right {
+      margin-left: 10px;
+      order: 2;
+    }
+
+
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
 
 // かつじ担当コード（7/26)
 .price {
