@@ -75,3 +75,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// 吹き出し部分
+$(function () {
+  $(window).scroll(function () {
+
+    $(".chat-item").each(function () {
+      var scroll = $(window).scrollTop();
+
+      var target = $(this).offset().top;
+
+      var windowHeight = $(window).height();
+
+      if (scroll > target - windowHeight + $(this).outerHeight()) {
+        $(this).addClass("speech");
+      }
+    });
+
+    
+  });
+});
