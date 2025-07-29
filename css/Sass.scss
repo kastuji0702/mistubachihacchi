@@ -158,12 +158,162 @@ header {
                 width: 50vw;
                 max-width: 400px;
                 height: 100%;
-                background: #fff;
+                background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
                 box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
                 transform: translateX(100%);
                 transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                // メニュー内の装飾はお好みで
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                // メニューリストのスタイリング
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+
+                    li {
+                        position: relative;
+                        overflow: visible; // 番号が見切れないように変更
+
+                        a {
+                            display: block;
+                            padding: 1.2rem 1.5rem 1.2rem 2.5rem; // 左側のパディングを増やして番号用のスペースを確保
+                            color: #333;
+                            text-decoration: none;
+                            font-weight: 600;
+                            font-size: 1.1rem;
+                            letter-spacing: 0.05em;
+                            border-radius: 15px;
+                            background: linear-gradient(
+                                135deg,
+                                rgba(107, 193, 206, 0.1) 0%,
+                                rgba(204, 208, 0, 0.1) 100%
+                            );
+                            border: 2px solid transparent;
+                            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                            position: relative;
+                            overflow: hidden;
+
+                            // ホバーエフェクト
+                            &:hover {
+                                color: #fff;
+                                background: linear-gradient(
+                                    135deg,
+                                    rgba(107, 193, 206, 0.9) 0%,
+                                    rgba(204, 208, 0, 0.9) 100%
+                                );
+                                border-color: rgba(107, 193, 206, 0.3);
+                                transform: translateY(-2px);
+                                box-shadow: 0 8px 25px rgba(107, 193, 206, 0.3);
+                            }
+
+                            // アクティブ状態
+                            &:active {
+                                transform: translateY(0);
+                                box-shadow: 0 4px 15px rgba(107, 193, 206, 0.2);
+                            }
+
+                            // リップルエフェクト
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 0;
+                                height: 0;
+                                background: rgba(255, 255, 255, 0.3);
+                                border-radius: 50%;
+                                transform: translate(-50%, -50%);
+                                transition: width 0.6s ease-out,
+                                    height 0.6s ease-out;
+                            }
+
+                            &:hover::before {
+                                width: 300px;
+                                height: 300px;
+                            }
+
+                            // アイコン装飾
+                            &::after {
+                                content: "→";
+                                position: absolute;
+                                right: 1.5rem;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                font-size: 1.2rem;
+                                opacity: 0;
+                                transition: all 0.3s ease;
+                            }
+
+                            &:hover::after {
+                                opacity: 1;
+                                transform: translateY(-50%) translateX(5px);
+                            }
+                        }
+
+                        // 番号表示 - 位置とサイズを調整
+                        &::before {
+                            content: counter(menu-counter);
+                            counter-increment: menu-counter;
+                            position: absolute;
+                            left: 0.5rem; // 左端からの距離を調整
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-size: 0.75rem; // フォントサイズを少し小さく
+                            font-weight: bold;
+                            color: rgba(107, 193, 206, 0.8);
+                            background: #fff;
+                            width: 1.8rem; // サイズを少し大きく
+                            height: 1.8rem;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border: 2px solid rgba(107, 193, 206, 0.3);
+                            z-index: 2; // z-indexを上げて確実に前面に表示
+                            box-shadow: 0 2px 8px rgba(107, 193, 206, 0.2); // 影を追加して視認性向上
+                        }
+                    }
+                }
+
+                // カウンターリセット
+                counter-reset: menu-counter;
+
+                // ヘッダー部分
+                &::before {
+                    content: "MENU";
+                    position: absolute;
+                    top: 2rem;
+                    left: 2rem;
+                    font-size: 0.9rem;
+                    font-weight: bold;
+                    color: rgba(107, 193, 206, 0.8);
+                    letter-spacing: 0.2em;
+                    text-transform: uppercase;
+                }
+
+                // フッター部分
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 2rem;
+                    left: 2rem;
+                    right: 2rem;
+                    height: 1px;
+                    background: linear-gradient(
+                        90deg,
+                        transparent 0%,
+                        rgba(107, 193, 206, 0.3) 50%,
+                        transparent 100%
+                    );
+                }
             }
+
             &.active {
                 opacity: 1;
                 pointer-events: auto;
@@ -237,6 +387,242 @@ header {
         z-index: 2;
         margin: 0;
         padding: 0;
+    }
+}
+
+/* ============================================== */
+/* Worry About Section - Layout Adjustments      */
+/* ============================================== */
+
+.worry-about {
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+
+    // 背景円の共通スタイル
+    &__bg-circle {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(74, 154, 166, 0.22);
+        pointer-events: none;
+        z-index: 1;
+        transition: all 0.3s ease-out;
+
+        // 各円の初期位置とサイズ
+        &--1 {
+            top: 10%;
+            left: 5%;
+            width: 200px;
+            height: 200px;
+        }
+
+        &--2 {
+            top: 60%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+        }
+
+        &--3 {
+            bottom: 20%;
+            left: 20%;
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+    // コンテンツを背景円より前面に
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    &__title {
+        font-size: 4rem;
+        font-weight: 900;
+        -webkit-text-stroke: 1px rgba(107, 193, 206, 1);
+        color: rgba(107, 193, 206, 1);
+        text-align: left;
+        margin-bottom: 0.5rem;
+
+        @include sp {
+            font-size: 2.5rem;
+            -webkit-text-stroke: 0.5px rgba(107, 193, 206, 1);
+        }
+    }
+
+    &__subtitle {
+        text-align: left;
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 3rem;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    &__item {
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
+
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        // 奇数番目のli（1番目、3番目）: 右側に写真、左にテキスト
+        &:nth-child(odd) {
+            .worry-about__content {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                gap: 3rem;
+
+                @include sp {
+                    flex-direction: column;
+                    gap: 2rem;
+                    .worry-about__text {
+                        order: 1;
+                    }
+                    .worry-about__image {
+                        order: 2;
+                    }
+                }
+            }
+        }
+
+        // 偶数番目のli（2番目）: 右側に写真、左にテキスト
+        &:nth-child(even) {
+            .worry-about__content {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                gap: 3rem;
+
+                @include sp {
+                    flex-direction: column;
+                    gap: 2rem;
+                    .worry-about__text {
+                        order: 1;
+                    }
+                    .worry-about__image {
+                        order: 2;
+                    }
+                }
+            }
+        }
+    }
+
+    &__image {
+        flex-shrink: 0;
+        width: 35%;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        border: 10px solid rgba(107, 193, 206, 1);
+        overflow: hidden;
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+            transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0s;
+        will-change: opacity, transform;
+
+        @include sp {
+            width: 60%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__item.visible .worry-about__image {
+        opacity: 1;
+        transform: scale(1);
+        transition-delay: 0s;
+    }
+
+    &__text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0.5s;
+        will-change: opacity;
+
+        h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: rgba(107, 193, 206, 1);
+            line-height: 1.4;
+            position: relative;
+        }
+
+        .typing-text {
+            display: inline-block;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.4em;
+            background-color: #6bc1ce;
+            margin-left: 2px;
+            animation: typing-cursor 1s steps(1) infinite;
+            position: absolute; // 絶対位置に変更
+            top: 0;
+            left: 0; // 初期位置
+            z-index: 10; // z-indexを追加
+            pointer-events: none; // マウスイベントを無効化
+        }
+
+        .completed .typing-cursor {
+            display: none;
+        }
+
+        p {
+            line-height: 1.8;
+            color: #666;
+            font-size: 1rem;
+        }
+    }
+
+    &__item.visible .worry-about__text {
+        opacity: 1;
+        transition-delay: 0.5s;
+    }
+
+    &__number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: rgba(107, 193, 206, 1);
+        margin-bottom: 1.5rem;
+
+        span {
+            font-size: 1rem;
+            color: #333;
+        }
+    }
+}
+
+/* タイピングカーソル点滅 */
+@keyframes typing-cursor {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
     }
 }
 
