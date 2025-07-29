@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="css/Sass.css" />
     <!--必ず下のコード入れること（swiper使用のため-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <!-- slick本体CSS（CDN） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
 </head>
 
 <body>
@@ -241,9 +244,53 @@
             </div>
         </section>
         <!-- VOICE -->
-        <section>
+        <section class="voice">
             <h2>Voice</h2>
             <p>皆さんの声</p>
+            <ul class="voice__list">
+                <li class="voice__item">
+                    <div class="voice__card">
+                        <h3 class="voice__card-title">
+                            <img src="img/yellow-monster.webp" class="voice__card-icon" alt="アイコン">
+                            20代男性
+                        </h3>
+                        <p class="voice__card-text">
+                            作業会の存在は知っていましたが、なんとなく気後れしてしまい参加はしていませんでした。
+                            しかしオフ会で「一人で悩むより学習が捗るよ」と聞き、その言葉に背中を押されて参加しました。
+                            すると、周りの方々が気軽に話しかけてくれ、講師以外にもすぐ質問できる温かい環境がありました。
+                            おかげで今では、一人で悩んでいた頃とは比べ物にならないほど、学習速度もモチベーションも格段にアップしました。
+                        </p>
+                    </div>
+                </li>
+                <li class="voice__item">
+                    <div class="voice__card">
+                        <h3 class="voice__card-title">
+                            <img src="img/yellow-monster.webp" class="voice__card-icon" alt="アイコン">
+                            30代女性
+                        </h3>
+                        <p class="voice__card-text">
+                            在宅で副業がしたくてプログラミングを始めましたが、一人での学習は不安でした。
+                            そんな時、作業会に参加してみると、同じように頑張るママさんをはじめ、境遇の近い仲間たちに出会えました。
+                            そんな人たちとお話しして、「一人じゃないんだ」と実感できたことで、安心できました。
+                            今では一緒に作業をしながら、モチベーション高く、楽しく勉強を続けられています。
+                        </p>
+                    </div>
+                </li>
+                <li class="voice__item">
+                    <div class="voice__card">
+                        <h3 class="voice__card-title">
+                            <img src="img/yellow-monster.webp" class="voice__card-icon" alt="アイコン">
+                            30代男性
+                        </h3>
+                        <p class="voice__card-text">
+                            参加する前は、本業の多忙や体調不良で、学習のモチベーションが低下していました。
+                            その際にに案内があった「初心者講習会」に参加したら、同じ悩みを抱えている人が多くて驚きました！
+                            そこから作業会もに参加し、月曜のセミナーの内容を実践したら学習がとても捗りました！
+                            是非、一人で悩む方に参加してみてほしいです！
+                        </p>
+                    </div>
+                </li>
+            </ul>
         </section>
         <button type="button" class="btn">
             <img src="img/meta-logo.webp" class="btn__image" alt="Meta ロゴ">
@@ -255,6 +302,7 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!--必ず下のコード入れること（swiper使用のため-->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
