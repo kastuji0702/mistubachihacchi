@@ -405,6 +405,7 @@ header .container .toggle_btn span:nth-child(3) {
   padding: 1rem auto;
   border: 3px solid #6bc1ce;
   border-radius: 50px;
+  background-color: #fff;
 }
 @media (max-width: 768px) {
   .price__content {
