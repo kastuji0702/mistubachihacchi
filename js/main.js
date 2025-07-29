@@ -333,3 +333,28 @@ document.addEventListener("DOMContentLoaded", () => {
         effect: "fade",
     });
 });
+
+// voiceの設定
+$(document).ready(function () {
+    $('.voice__list').slick({
+
+        centerMode: true,   
+        centerPadding: '25%', 
+        slidesToShow: 1,      
+        arrows: true,        
+        dots: true,           
+        infinite: true,       
+
+        responsive: [
+            {
+                breakpoint: 768, 
+                settings: {
+                    centerMode: false, // 中央表示モードを解除
+                    centerPadding: '0',  // 見切れをなくす
+                    arrows: true,     
+                    dots: true         
+                }
+            }
+        ]
+    });
+});
