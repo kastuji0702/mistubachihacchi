@@ -638,12 +638,14 @@ header {
 
 .sub-title {
     margin-left: 4%;
+    margin-bottom: 60px;
     font-weight: bold;
 }
 
 .sec-bg {
     background-color: #edf2e5;
     width: 88%;
+    border-radius: 40px; 
     margin: 0 auto;
     padding: 2%;
 }
@@ -671,22 +673,26 @@ header {
     .img-deco {
         position: relative;
         display: inline-block;
-        z-index: 10;
-        margin: 50px;
+        margin: 80px;
         width: 50%;
+
+        img{
+          position: relative;
+          z-index: 10;
+        }
     }
     .img-deco::before {
-        content: "";
-        position: absolute;
-        top: -50px;
-        right: -50px;
-        width: 100px;
-        height: 100px;
-        background-color: #cdd000;
-        border: solid 4px #8bc34a;
-        opacity: 0.5;
-        z-index: 5;
-    }
+          content: "";
+          position: absolute;
+          top: -50px;
+          right: -50px;
+          width: 100px;
+          height: 100px;
+          background-color: #cdd000;
+          border: solid 4px #8bc34a;
+          opacity: 0.5;
+          z-index: 5;
+      }
     .img-deco::after {
         position: absolute;
         content: "";
@@ -711,26 +717,49 @@ header {
     // flex-direction: column;
     // gap: 30px;
 
+    .speech {
+      opacity: 1;
+      transform: translateY(0);
+      animation: balloon 0.5s ease-out 0s 1 forwards;
+      }
+  
+    @keyframes balloon {
+        0% {
+            transform: scale(0.1);
+            opacity: 0;
+        }
+    
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        }
+
     .chat-item {
         display: flex;
         align-items: center;
-        // opacity: 0;
-        // transform: translateY(40px);
-        // transition: all 0.6s ease;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
 
-        // .speech {
-        //   opacity: 1;
-        //   transform: translateY(0);
-        // }
-
-        .chat-bubble {
+        .chat-bubble-l {
             width: 70%;
             background-color: #fff;
             border: 4px solid #ccd000;
-            border-radius: 50px;
+            border-radius: 50px 50px 50px 0;
             padding: 20px 30px;
             margin-block: 40px;
+            
         }
+        .chat-bubble-r {
+          width: 70%;
+          background-color: #fff;
+          border: 4px solid #ccd000;
+          border-radius: 50px 50px 0 50px;
+          padding: 20px 30px;
+          margin-block: 40px;
+          
+      }
 
         .chat-icon {
             width: 60px;
