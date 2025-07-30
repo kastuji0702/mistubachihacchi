@@ -618,59 +618,62 @@ header .container .toggle_btn span:nth-child(3) {
     opacity: 0;
   }
 }
-.section-title {
-  font-size: 52px;
+.why-meta-life {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.why-meta-life .section-title {
+  font-size: 3.25rem;
   font-weight: 900;
   background: linear-gradient(135deg, #ccd000, #e5ea03);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-left: 4%;
 }
-
-.sub-title {
+.why-meta-life .sub-title {
   margin-left: 4%;
   margin-bottom: 60px;
   font-weight: bold;
 }
-
-.sec-bg {
+.why-meta-life .sec-bg {
   background-color: #edf2e5;
   width: 88%;
   border-radius: 40px;
   margin: 0 auto;
   padding: 2%;
 }
-
-.number {
+.why-meta-life .number {
   font-size: 32px;
   font-weight: bold;
   color: #ccd000;
 }
-.number span {
+.why-meta-life .number span {
   font-size: 16px;
   color: #333;
 }
-
-.contents {
+.why-meta-life .contents {
   display: flex;
   margin: 30px;
 }
-.contents h3 {
+.why-meta-life .contents .text {
+  width: 30%;
+}
+.why-meta-life .contents h3 {
   color: #ccd000;
   font-size: 1.5rem;
   margin-block: 20px;
 }
-.contents .img-deco {
+.why-meta-life .contents .img-deco {
   position: relative;
   display: inline-block;
   margin: 80px;
-  width: 50%;
+  width: 55%;
 }
-.contents .img-deco img {
+.why-meta-life .contents .img-deco img {
   position: relative;
   z-index: 10;
 }
-.contents .img-deco::before {
+.why-meta-life .contents .img-deco::before {
   content: "";
   position: absolute;
   top: -50px;
@@ -682,7 +685,7 @@ header .container .toggle_btn span:nth-child(3) {
   opacity: 0.5;
   z-index: 5;
 }
-.contents .img-deco::after {
+.why-meta-life .contents .img-deco::after {
   position: absolute;
   content: "";
   bottom: -75px;
@@ -696,7 +699,7 @@ header .container .toggle_btn span:nth-child(3) {
 
 /* ふきだしのところ */
 .chat-section {
-  width: 900px;
+  max-width: 1200px;
   text-align: center;
   margin: 60px auto;
 }
@@ -729,6 +732,7 @@ header .container .toggle_btn span:nth-child(3) {
 .chat-section .chat-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease;
