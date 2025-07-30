@@ -627,90 +627,99 @@ header {
 }
 
 // 2025/07/25 すずさんの担当コード
-.section-title {
-    font-size: 52px;
-    font-weight: 900;
-    background: linear-gradient(135deg, #ccd000, #e5ea03);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-left: 4%;
-}
 
-.sub-title {
-    margin-left: 4%;
-    margin-bottom: 60px;
-    font-weight: bold;
-}
+.why-meta-life{
+  max-width: 1200px;
+  margin: 0 auto;
 
-.sec-bg {
-    background-color: #edf2e5;
-    width: 88%;
-    border-radius: 40px; 
-    margin: 0 auto;
-    padding: 2%;
-}
+  .section-title {
+      font-size: 3.25rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ccd000, #e5ea03);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-left: 4%;
+  }
 
-.number {
-    font-size: 32px;
-    font-weight: bold;
-    color: #ccd000;
+  .sub-title {
+      margin-left: 4%;
+      margin-bottom: 60px;
+      font-weight: bold;
+  }
 
-    span {
-        font-size: 16px;
-        color: #333;
-    }
-}
+  .sec-bg {
+      background-color: #edf2e5;
+      width: 88%;
+      border-radius: 40px; 
+      margin: 0 auto;
+      padding: 2%;
+  }
 
-.contents {
-    display: flex;
-    margin: 30px;
+  .number {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ccd000;
 
-    h3 {
-        color: #ccd000;
-        font-size: 1.5rem;
-        margin-block: 20px;
-    }
-    .img-deco {
-        position: relative;
-        display: inline-block;
-        margin: 80px;
-        width: 50%;
+      span {
+          font-size: 16px;
+          color: #333;
+      }
+  }
 
-        img{
+  .contents {
+      display: flex;
+      margin: 30px;
+
+      .text{
+        width: 30%;
+      }
+      h3 {
+          color: #ccd000;
+          font-size: 1.5rem;
+          margin-block: 20px;
+      }
+      .img-deco {
           position: relative;
-          z-index: 10;
+          display: inline-block;
+          margin: 80px;
+          width: 55%;
+
+          img{
+            position: relative;
+            z-index: 10;
+          }
+      }
+      .img-deco::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background-color: #cdd000;
+            border: solid 4px #8bc34a;
+            opacity: 0.5;
+            z-index: 5;
         }
-    }
-    .img-deco::before {
-          content: "";
+      .img-deco::after {
           position: absolute;
-          top: -50px;
-          right: -50px;
-          width: 100px;
-          height: 100px;
+          content: "";
+          bottom: -75px;
+          left: -105px;
+          width: 250px;
+          height: 150px;
           background-color: #cdd000;
-          border: solid 4px #8bc34a;
+          // border: solid 4px #cdd000;
           opacity: 0.5;
           z-index: 5;
       }
-    .img-deco::after {
-        position: absolute;
-        content: "";
-        bottom: -75px;
-        left: -105px;
-        width: 250px;
-        height: 150px;
-        background-color: #cdd000;
-        // border: solid 4px #cdd000;
-        opacity: 0.5;
-        z-index: 5;
-    }
+  }
 }
 
 /* ふきだしのところ */
 
 .chat-section {
-    width: 900px;
+    max-width: 1200px;
     text-align: center;
     margin: 60px auto;
     // display: flex;
@@ -738,6 +747,7 @@ header {
     .chat-item {
         display: flex;
         align-items: center;
+        justify-content: center; // 中央に寄せる
         opacity: 0;
         transform: translateY(40px);
         transition: all 0.8s ease;
