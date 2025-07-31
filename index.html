@@ -2,13 +2,14 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Mistubachi</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mitubachi</title>
     <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="img/web-icon.webp" />
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link rel="stylesheet" href="css/Sass.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <!--必ず下のコード入れること（swiper使用のため-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <!-- slick本体CSS（CDN） -->
@@ -17,13 +18,38 @@
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-icon">
+                <img src="img/web-icon.webp" alt="Loading Icon" />
+            </div>
+            <div class="loading-progress">
+                <div class="loading-bar">
+                    <div class="loading-bar-fill"></div>
+                </div>
+                <div class="loading-text">Loading <span class="loading-percentage">0</span>%</div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <h1>
                 <div class="logo">
                     <img src="img/web-icon.webp" alt="ウェブアイコン" />
                 </div>
-                <p>Mitubachi</p>
+                <p>
+                    <span class="char">M</span>
+                    <span class="char">i</span>
+                    <span class="char">t</span>
+                    <span class="char">u</span>
+                    <span class="char">b</span>
+                    <span class="char">a</span>
+                    <span class="char">c</span>
+                    <span class="char">h</span>
+                    <span class="char">i</span>
+                </p>
             </h1>
             <nav class="mask">
                 <div class="mask__drawer">
@@ -57,6 +83,8 @@
                 <div class="worry-about__bg-circle worry-about__bg-circle--1"></div>
                 <div class="worry-about__bg-circle worry-about__bg-circle--2"></div>
                 <div class="worry-about__bg-circle worry-about__bg-circle--3"></div>
+                <div class="worry-about__bg-circle worry-about__bg-circle--4"></div>
+                <div class="worry-about__bg-circle worry-about__bg-circle--5"></div>
                 
                 <h2 class="worry-about__title">WORRY ABOUT</h2>
                 <p class="worry-about__subtitle">
@@ -130,17 +158,18 @@
         <!-- すず担当部分 -->
         <section class="why-meta-life">
             <h2 class="section-title">WHY META LIFE</h2>
-            <p class="sub-title">MetaLifeってどんなところ？</p>
+            <p class="sub-title">MetaLifeってどんなところ?</p>
             <div class="sec-bg">
                 <div class="contents">
                     <div class="text">
                         <p class="number">01<span>/03</span></p>
-                        <h3>同じ悩みを乗り越えた<br>仲間がいる！</h3>
+                        <h3>同じ悩みを乗り越えた<br>仲間がいる!</h3>
                         <p>
                             MetaLifeを利用している生徒さんは<br>
-                            お互いに助け合う文化があり、<br>
-                            そこで各々のスキルアップや時間効率を上げている方が<br>
-                            多く在籍しています
+                            お互いに助け合う文化があり<br>
+                            そこで各々のスキルアップや<br>
+                            時間効率を上げている方が<br>
+                            多く在籍しています<br>
                         </p>
                     </div>
                     <div class="img-deco"><img src="img/image_37.webp"></div>
@@ -149,12 +178,13 @@
                     <div class="img-deco"><img src="img/image_12.webp"></div>
                     <div class="text">
                         <p class="number">02<span>/03</span></p>
-                        <h3>ハイレベルのあの講師が<br>セミナーを開催！？</h3>
+                        <h3>ハイレベルのあの講師が<br>セミナーを開催!?</h3>
                         <p>
                             運営陣によるセミナーを<br>
-                            毎週月曜日の21時に開催中！<br>
+                            毎週月曜日の21時に開催中!<br>
                             スキルアップを目指す方や<br>
-                            今後のキャリアの相談なども受け付けています！
+                            今後のキャリアの相談なども<br>
+                            受け付けています<br>
                         </p>
                     </div>
                 </div>
@@ -164,8 +194,10 @@
                         <h3>オフラインならではの<br>イベントも...</h3>
                         <p>
                             毎月2回ほど交流を深めるために<br>
-                            運営陣や講師陣と生徒さんとのイベントを開催し、<br>
-                            横のつながりを増やすことを目指しています！
+                            運営陣や講師陣と<br>
+                            生徒さんとのイベントを開催し、<br>
+                            横のつながりを増やすことを<br>
+                            目指しています!<br>
                         </p>
                     </div>
                     <div class="img-deco"><img src="img/image_21.webp"></div>
@@ -179,7 +211,7 @@
             </div>
             <div class="chat-item">
                 <img src="img/cool-boy.webp" alt="" class="chat-icon right">
-                <div class="chat-bubble-r">最初はみんな緊張するし、知らない人ばかりなのも同じ！大丈夫！</div>
+                <div class="chat-bubble-r">最初はみんな緊張するし、知らない人ばかりなのも同じ!大丈夫!</div>
             </div>
             <div class="chat-item">
                 <img src="img/pink-girl.webp" alt="" class="chat-icon left">
@@ -187,15 +219,15 @@
             </div>
             <div class="chat-item">
                 <img src="img/yellow-monster.webp" alt="" class="chat-icon right">
-                <div class="chat-bubble-r">わかるよ、でも大丈夫！成長のペースは人それぞれだし、自分の歩幅で進んでいくのが一番いいんだよ！</div>
+                <div class="chat-bubble-r">わかるよ、でも大丈夫!成長のペースは人それぞれだし、自分の歩幅で進んでいくのが一番いいんだよ!</div>
             </div>
             <div class="chat-item">
                 <img src="img/suzu.webp" alt="" class="chat-icon left">
-                <div class="chat-bubble-l">正直まだまだできないことばっかりだけど、それでも…ちょっとやってみたいって思えてきた！！</div>
+                <div class="chat-bubble-l">正直まだまだできないことばっかりだけど、それでも…ちょっとやってみたいって思えてきた!!</div>
             </div>
             <div class="chat-item">
                 <img src="img/yellow-monster.webp" alt="" class="chat-icon right">
-                <div class="chat-bubble-r">“ちょっとやってみたい”って気持ちが、大事!今のあなたならきっと動き出せるよ！！</div>
+                <div class="chat-bubble-r">“ちょっとやってみたい”って気持ちが、大事!今のあなたならきっと動き出せるよ!!</div>
             </div>
         </section>
 
@@ -230,9 +262,9 @@
                 <details class="faq__item">
                     <summary class="faq__summary"><span class="faq__q-mark">Q</span>どの時間帯に参加者が多いとかありますか？</summary>
                     <div class="faq__answer">
-                        <p class="faq__answer-content"><span　class="faq__a-mark">A</span>
+                        <p class="faq__answer-content"><span class="faq__a-mark">A</span>
                             土日より平日に参加している人が多いです。参考までに朝、昼、夜のピークを記載しておきます。<br>
-                            朝：6:00〜7:00 昼：12:00〜14:00　夜：20:30〜23:00
+                            朝：6:00〜7:00 昼：12:00〜14:00 夜：20:30〜23:00
                         </p>
                     </div>
                 </details>
@@ -305,7 +337,7 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!--必ず下のコード入れること（swiper使用のため-->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
