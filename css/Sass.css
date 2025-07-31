@@ -649,12 +649,12 @@ header .container .toggle_btn span:nth-child(3) {
   padding: 2%;
 }
 .why-meta-life .number {
-  font-size: 32px;
+  font-size: 2.5rem;
   font-weight: bold;
   color: #ccd000;
 }
 .why-meta-life .number span {
-  font-size: 16px;
+  font-size: 1rem;
   color: #333;
 }
 .why-meta-life .contents {
@@ -759,7 +759,7 @@ header .container .toggle_btn span:nth-child(3) {
 }
 @media (max-width: 450px) {
   .why-meta-life .contents .img-deco::after {
-    bottom: -30px;
+    bottom: -32px;
     left: -42px;
     width: 84px;
     height: 64px;
