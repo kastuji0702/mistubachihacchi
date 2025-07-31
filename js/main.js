@@ -347,7 +347,7 @@ $(document).ready(function () {
 
         responsive: [
             {
-                breakpoint: 768, 
+                breakpoint: 769, 
                 settings: {
                     centerMode: false, // 中央表示モードを解除
                     centerPadding: '0',  // 見切れをなくす
