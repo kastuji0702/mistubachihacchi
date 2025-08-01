@@ -1812,11 +1812,12 @@ header .container .toggle_btn span:nth-child(3) {
 .why-meta-life {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 4rem 0;
 }
 .why-meta-life .section-title {
   font-size: 4rem;
   font-weight: 900;
-  background: linear-gradient(135deg, #ccd000, #e5ea03);
+  background: linear-gradient(90deg, #ccd000 0%, #71c403 70%, #e5ea03 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-left: 4%;
@@ -2016,7 +2017,7 @@ header .container .toggle_btn span:nth-child(3) {
 .chat-section .chat-item .chat-icon {
   width: 60px;
   height: 60px;
-  border: solid 2px #ccd000;
+  border: solid 4px #ccd000;
   border-radius: 50px;
   margin-top: 50px;
 }
