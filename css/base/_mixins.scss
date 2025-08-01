@@ -1,0 +1,17 @@
+@mixin contentArea($padding-inline: 3%, $max-width: 1200px) {
+    margin-inline: auto;
+    padding-inline: $padding-inline;
+    max-width: $max-width;
+}
+
+@mixin sp {
+    @media (max-width: $breakpoint-sp) {
+        @content;
+    }
+}
+
+@mixin media-query($media-condition) {
+    @media ($media-condition) {
+        @content;
+    }
+}

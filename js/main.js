@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // GSAP Mitubachi文字アニメーション
-    const chars = document.querySelectorAll(".char");
+    const chars = document.querySelectorAll(
+        ".char:not(.mainvisual__title-char)"
+    );
 
-    // 初期アニメーション（ページ読み込み時）
     gsap.set(chars, { y: 0, color: "#2c3e50" });
 
-    // ホバーアニメーション
     chars.forEach((char, index) => {
         char.addEventListener("mouseenter", () => {
             gsap.to(char, {
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Loading Screen Functionality
     const loadingScreen = document.querySelector(".loading-screen");
     const loadingIcon = document.querySelector(".loading-icon img");
     const loadingBarFill = document.querySelector(".loading-bar-fill");
@@ -38,13 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let loadingProgress = 0;
     let isPageFullyLoaded = false;
 
-    // ページの読み込み状況を監視
     function checkPageLoadStatus() {
         const images = document.querySelectorAll("img");
         const totalImages = images.length;
         let loadedImages = 0;
 
-        // 画像の読み込み状況をチェック
         images.forEach((img) => {
             if (img.complete) {
                 loadedImages++;
@@ -60,12 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // 初期チェック
         updateLoadingProgress();
 
         function updateLoadingProgress() {
-            const imageProgress = (loadedImages / totalImages) * 60; // 画像読み込みで60%
-            const baseProgress = 20; // 基本20%
+            const imageProgress = (loadedImages / totalImages) * 60;
+            const baseProgress = 20;
             const totalProgress = Math.min(baseProgress + imageProgress, 80);
 
             if (totalProgress > loadingProgress) {
@@ -73,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 updateLoadingUI();
             }
 
-            // すべての画像が読み込まれたら100%に
             if (loadedImages >= totalImages && !isPageFullyLoaded) {
                 setTimeout(() => {
                     loadingProgress = 100;
@@ -88,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
         loadingBarFill.style.width = loadingProgress + "%";
         loadingPercentage.textContent = Math.floor(loadingProgress);
 
-        // アイコンの表示制御
         if (loadingProgress > 20) {
             loadingIcon.classList.add("visible");
         }
@@ -97,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function completeLoading() {
         isPageFullyLoaded = true;
 
-        // 100%になった時のアニメーション
         setTimeout(() => {
             loadingIcon.classList.add("shake");
 
@@ -111,54 +103,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     }
 
-    // ページ読み込み状況の監視開始
     checkPageLoadStatus();
 
-    // フォールバック: 最低限のloading時間を確保
     setTimeout(() => {
         if (!isPageFullyLoaded) {
             loadingProgress = 100;
             updateLoadingUI();
             completeLoading();
         }
-    }, 3000); // 最低3秒はloading
+    }, 3000);
 
-    // maskの起動処理
     $(".toggle_btn").on("click", function () {
         $(".mask").toggleClass("active");
     });
 
-    // 既存のtoggle_btnクリック処理の下に追加
     $(".mask").on("click", function (e) {
-        // メニュー本体以外（黒い部分）をクリックしたら閉じる
-        if ($(e.target).hasClass("mask")) {
+        if (
+            $(e.target).hasClass("mask") ||
+            $(e.target).closest(".mask__drawer").length === 0
+        ) {
             $(this).removeClass("active");
         }
     });
 
-    // スクロールで背景円の大きさを変化させる（軽量版）
-    window.addEventListener(
-        "scroll",
-        () => {
-            const scrollY = window.scrollY || window.pageYOffset;
-            const circles = document.querySelectorAll(
-                ".worry-about__bg-circle"
-            );
-            circles.forEach((circle, i) => {
-                // スクロール量に応じてサイズと透明度のみ変化
-                const base = [200, 300, 150, 180, 120][i];
-                const scale = 0.8 + Math.min(scrollY / 1000, 0.4);
-                const opacity = 0.3 + Math.min(scrollY / 800, 0.3);
+    $(".mask a").on("click", function (e) {
+        e.preventDefault();
 
-                const size = Math.min(base * scale, 900);
-                circle.style.width = size + "px";
-                circle.style.height = size + "px";
-                circle.style.opacity = opacity;
-                circle.style.filter = `blur(${(scale - 0.8) * 5}px)`;
-            });
-        },
-        { passive: true }
-    ); // パフォーマンス向上
+        const targetId = $(this).attr("href");
+        const targetElement = $(targetId);
+
+        if (targetElement.length) {
+            $(".mask").removeClass("active");
+            $("html, body").animate(
+                {
+                    scrollTop: targetElement.offset().top - 100,
+                },
+                800
+            );
+        }
+    });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -338,18 +321,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setInitialPositions();
 
-    // 軽量版：常時アニメーション（CSSのみ）
     function setCirclePositions() {
         const container = document.querySelector(".worry-about .container");
         const rect = container.getBoundingClientRect();
         const w = Math.min(rect.width, 900);
         const h = Math.max(rect.height, 500);
 
-        // 各円の初期位置を設定（CSSアニメーションで動作）
         circles.forEach((circle, i) => {
             if (!circle.el) return;
 
-            // 星形の配置
             const positions = [
                 { x: w * 0.2, y: h * 0.3, r: 200 },
                 { x: w * 0.7, y: h * 0.6, r: 300 },
@@ -373,12 +353,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    // GSAP WORRY ABOUTセクションアニメーション
     const worryAboutItems = document.querySelectorAll(".worry-about__item");
     const worryAboutImages = document.querySelectorAll(".worry-about__image");
     const worryAboutTexts = document.querySelectorAll(".worry-about__text");
 
-    // 初期状態を設定
     gsap.set(worryAboutItems, {
         opacity: 0,
         y: 50,
@@ -511,14 +489,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     const typingCursor = h4.querySelector(".typing-cursor");
 
                     if (typingText && typingCursor) {
-                        // 元のテキストを直接指定（HTMLから取得）
                         const originalTexts = [
                             "わからないところ調べてたら1日経ってた...",
                             "全く手が動かなくてコードを1行で1時間使ってた...",
                             "今後のキャリアが不安、一人は寂しい...",
                         ];
 
-                        // どのアイテムかを特定
                         const itemIndex = Array.from(
                             item.parentNode.children
                         ).indexOf(item);
@@ -537,7 +513,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     i + 1
                                 );
 
-                                // カーソル位置を動的に計算
                                 const textWidth = typingText.offsetWidth;
                                 typingCursor.style.left = `${textWidth}px`;
 
@@ -569,21 +544,6 @@ document.addEventListener("DOMContentLoaded", () => {
     items.forEach((item, idx) => {
         observer.observe(item);
         console.log("Observing item:", idx);
-    });
-
-    const slider = new Swiper(".slider1", {
-        // 基本的な設定
-        //スライドを無限にループさせる
-        loop: true,
-        //自動再生する
-        autoplay: {
-            display: 2000,
-            disableOnInteraction: false, // ユーザー操作後も再開する
-        },
-        //スライドが切り替わるときのアニメーションの速度を2秒に指定
-        speed: 2000,
-        //fadeを設定
-        effect: "fade",
     });
 });
 
@@ -617,4 +577,89 @@ $(document).ready(function () {
             },
         ],
     });
+});
+
+// メインビジュアルタイトルのタイピングアニメーション
+document.addEventListener("DOMContentLoaded", function () {
+    const mainTitle = document.querySelector(".mainvisual__title--animated");
+    if (!mainTitle) return;
+
+    const typingText = mainTitle.querySelector(".typing-text");
+    const typingCursor = mainTitle.querySelector(".typing-cursor");
+
+    if (typingText && typingCursor) {
+        const originalText = "その一歩が未来を開く扉になる";
+
+        // 初期状態
+        typingText.textContent = "";
+        let i = 0;
+
+        function typeChar() {
+            if (i < originalText.length) {
+                typingText.textContent = originalText.slice(0, i + 1);
+
+                // カーソル位置を動的に計算
+                const textWidth = typingText.offsetWidth;
+                typingCursor.style.left = `${textWidth}px`;
+
+                i++;
+                setTimeout(typeChar, 200); // 200ms間隔
+            } else {
+                mainTitle.classList.add("completed");
+            }
+        }
+
+        // ページ読み込み後少し遅れて開始
+        setTimeout(typeChar, 1000);
+    }
+});
+
+// スクロールアニメーション
+function handleScrollAnimation() {
+    const sections = document.querySelectorAll(".section-group");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate-in");
+                }
+            });
+        },
+        {
+            threshold: 0.2, // 20%見えたらアニメーション開始
+            rootMargin: "0px 0px -50px 0px", // 少し早めにトリガー
+        }
+    );
+
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
+}
+
+// DOM読み込み完了後に実行
+document.addEventListener("DOMContentLoaded", function () {
+    // スクロールアニメーションを初期化
+    handleScrollAnimation();
+});
+
+// スムーズスクロール機能
+$(".mask a").on("click", function (e) {
+    e.preventDefault();
+
+    const targetId = $(this).attr("href");
+    const targetElement = $(targetId);
+
+    if (targetElement.length) {
+        // maskを閉じる
+        $(".mask").removeClass("active");
+
+        // スムーズスクロール
+        $("html, body").animate(
+            {
+                scrollTop: targetElement.offset().top - 100, // ヘッダーの高さ分調整
+            },
+            800
+        );
+    }
 });

@@ -1,404 +1,563 @@
 <!DOCTYPE html>
 <html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mitubachi</title>
+        <meta
+            name="description"
+            content="テキストテキストテキストテキストテキストテキストテキストテキスト"
+        />
+        <link rel="shortcut icon" href="img/web-icon.webp" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/ress/dist/ress.min.css"
+        />
+        <link rel="stylesheet" href="css/Sass.css" />
+        <!-- GSAP - ヘッダーアニメーション用 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <!-- jQuery - Slick Carousel用 -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Slick Carousel CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+        />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mitubachi</title>
-    <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト" />
-    <link rel="shortcut icon" href="img/web-icon.webp" />
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-    <link rel="stylesheet" href="css/Sass.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <!--必ず下のコード入れること（swiper使用のため-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-        <!-- slick本体CSS（CDN） -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-</head>
-
-<body>
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-        <div class="loading-container">
-            <div class="loading-icon">
-                <img src="img/web-icon.webp" alt="Loading Icon" />
-            </div>
-            <div class="loading-progress">
-                <div class="loading-bar">
-                    <div class="loading-bar-fill"></div>
+    <body>
+        <!-- Loading Screen -->
+        <section class="loading-screen">
+            <div class="loading-container">
+                <div class="loading-icon">
+                    <img src="img/web-icon.webp" alt="Loading Icon" />
                 </div>
-                <div class="loading-text">Loading <span class="loading-percentage">0</span>%</div>
-            </div>
-        </div>
-    </div>
-
-    <header>
-        <div class="container">
-            <h1>
-                <div class="logo">
-                    <img src="img/web-icon.webp" alt="ウェブアイコン" />
-                </div>
-                <p>
-                    <span class="char">M</span>
-                    <span class="char">i</span>
-                    <span class="char">t</span>
-                    <span class="char">u</span>
-                    <span class="char">b</span>
-                    <span class="char">a</span>
-                    <span class="char">c</span>
-                    <span class="char">h</span>
-                    <span class="char">i</span>
-                </p>
-            </h1>
-            <nav class="mask">
-                <div class="mask__drawer">
-                    <ul>
-                        <li><a href="">WORRY ABOUT</a></li>
-                        <li><a href="">WHY META LIFE</a></li>
-                        <li><a href="">META LIFE PRICE</a></li>
-                        <li><a href="">Q&A</a></li>
-                        <li><a href="">VOICE</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="toggle_btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </header>
-    <main>
-        <section class="mainvisual">
-            <div class="mainvisual__content">
-                <div class="mainvisual__text">
-                    <h2 class="mainvisual__title">
-                        <span>そ</span><span>の</span><span>一</span><span>歩</span><span>が</span><br />
-                        <span>未</span><span>来</span><span>を</span><span>開</span><span>く</span><span>扉</span><span>に</span><span>な</span><span>る</span>
-                    </h2>
-                </div>
-                <div class="mainvisual__video-container">
-                    <video 
-                        src="movie/noeLP.mp4" 
-                        autoplay 
-                        muted 
-                        loop 
-                        playsinline
-                        preload="metadata"
-                        poster="img/mainvisual-poster.jpg"
-                        class="mainvisual__video"
-                        aria-label="メインビジュアル動画">
-                    </video>
+                <div class="loading-progress">
+                    <div class="loading-bar">
+                        <div class="loading-bar-fill"></div>
+                    </div>
+                    <div class="loading-text">
+                        Loading <span class="loading-percentage">0</span>%
+                    </div>
                 </div>
             </div>
-            
-            <!-- 光の粒子エフェクト -->
-            <div class="sparkle-container">
-                <div class="sparkle sparkle--1"></div>
-                <div class="sparkle sparkle--2"></div>
-                <div class="sparkle sparkle--3"></div>
-                <div class="sparkle sparkle--4"></div>
-                <div class="sparkle sparkle--5"></div>
-                <div class="sparkle sparkle--6"></div>
-                <div class="sparkle sparkle--7"></div>
-                <div class="sparkle sparkle--8"></div>
-                <div class="sparkle sparkle--9"></div>
-                <div class="sparkle sparkle--10"></div>
-                <div class="sparkle sparkle--11"></div>
-                <div class="sparkle sparkle--12"></div>
-                <div class="sparkle sparkle--13"></div>
-                <div class="sparkle sparkle--14"></div>
-                <div class="sparkle sparkle--15"></div>
-            </div>
-            
-            <img src="img/mainvisual.webp" alt="メインビジュアル画像" />
         </section>
 
-        <article class="worry-about">
+        <header>
             <div class="container">
-                <!-- 背景円を追加 -->
-                <div class="worry-about__bg-circle worry-about__bg-circle--1"></div>
-                <div class="worry-about__bg-circle worry-about__bg-circle--2"></div>
-                <div class="worry-about__bg-circle worry-about__bg-circle--3"></div>
-                <div class="worry-about__bg-circle worry-about__bg-circle--4"></div>
-                <div class="worry-about__bg-circle worry-about__bg-circle--5"></div>
-                
-                <h2 class="worry-about__title">WORRY ABOUT</h2>
-                <p class="worry-about__subtitle">
-                    こんなお困りはありませんか？
-                </p>
+                <h1>
+                    <div class="logo">
+                        <img src="img/web-icon.webp" alt="ウェブアイコン" />
+                    </div>
+                    <p>
+                        <span class="char">M</span>
+                        <span class="char">i</span>
+                        <span class="char">t</span>
+                        <span class="char">u</span>
+                        <span class="char">b</span>
+                        <span class="char">a</span>
+                        <span class="char">c</span>
+                        <span class="char">h</span>
+                        <span class="char">i</span>
+                    </p>
+                </h1>
+                <nav class="mask">
+                    <div class="mask__drawer">
+                        <section class="navigation-menu">
+                            <ul>
+                                <li><a href="#worry-about">WORRY ABOUT</a></li>
+                                <li>
+                                    <a href="#go-meta-life">WHY META LIFE</a>
+                                </li>
+                                <li><a href="#price">META LIFE PRICE</a></li>
+                                <li><a href="#faq">Q&A</a></li>
+                                <li><a href="#voice">VOICE</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </nav>
+                <div class="toggle_btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
 
-                <ul class="worry-about__list">
-                    <li class="worry-about__item">
-                        <div class="worry-about__content">
-                            <div class="worry-about__text">
-                                <h3 class="worry-about__number">
-                                    01<span>/03</span>
-                                </h3>
-                                <h4>
-                                    <span class="typing-text"></span>
-                                    <span class="typing-cursor"></span>
-                                </h4>
-                                <p>
-                                    自分で調べても思うような答えが出てこないですし、だんだん楽しく無くなってきてます。
-                                </p>
+        <main>
+            <section class="mainvisual">
+                <div class="mainvisual__content">
+                    <div class="mainvisual__text">
+                        <h2
+                            class="mainvisual__title mainvisual__title--animated"
+                        >
+                            <span class="typing-text"></span>
+                            <span class="typing-cursor"></span>
+                        </h2>
+                    </div>
+                    <div class="mainvisual__video-container">
+                        <video
+                            src="movie/noeLP.mp4"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            poster="img/mainvisual-poster.jpg"
+                            class="mainvisual__video"
+                            aria-label="メインビジュアル動画"
+                        ></video>
+                    </div>
+                </div>
+
+                <!-- 光の粒子エフェクト -->
+                <div class="sparkle-container">
+                    <div class="sparkle sparkle--1"></div>
+                    <div class="sparkle sparkle--2"></div>
+                    <div class="sparkle sparkle--3"></div>
+                    <div class="sparkle sparkle--4"></div>
+                    <div class="sparkle sparkle--5"></div>
+                    <div class="sparkle sparkle--6"></div>
+                    <div class="sparkle sparkle--7"></div>
+                    <div class="sparkle sparkle--8"></div>
+                    <div class="sparkle sparkle--9"></div>
+                    <div class="sparkle sparkle--10"></div>
+                    <div class="sparkle sparkle--11"></div>
+                    <div class="sparkle sparkle--12"></div>
+                    <div class="sparkle sparkle--13"></div>
+                    <div class="sparkle sparkle--14"></div>
+                    <div class="sparkle sparkle--15"></div>
+                </div>
+
+                <figure class="mainvisual-image">
+                    <img src="img/mainvisual.webp" alt="メインビジュアル画像" />
+                </figure>
+            </section>
+
+            <article class="worry-about section-group" id="worry-about">
+                <div class="container">
+                    <!-- 背景円を追加 -->
+                    <div
+                        class="worry-about__bg-circle worry-about__bg-circle--1"
+                    ></div>
+                    <div
+                        class="worry-about__bg-circle worry-about__bg-circle--2"
+                    ></div>
+                    <div
+                        class="worry-about__bg-circle worry-about__bg-circle--3"
+                    ></div>
+                    <div
+                        class="worry-about__bg-circle worry-about__bg-circle--4"
+                    ></div>
+                    <div
+                        class="worry-about__bg-circle worry-about__bg-circle--5"
+                    ></div>
+
+                    <h2 class="section__title">WORRY ABOUT</h2>
+                    <p class="section__subtitle">
+                        こんなお困りはありませんか？
+                    </p>
+
+                    <section id="worry-about__list" class="worry-about__list">
+                        <article class="worry-about__item">
+                            <div class="worry-about__content">
+                                <div class="worry-about__text">
+                                    <h3 class="worry-about__number">
+                                        01<span>/03</span>
+                                    </h3>
+                                    <h4>
+                                        <span class="typing-text"></span>
+                                        <span class="typing-cursor"></span>
+                                    </h4>
+                                    <p>
+                                        自分で調べても思うような答えが出てこないですし、だんだん楽しく無くなってきてます。
+                                    </p>
+                                </div>
+                                <figure class="worry-about__image">
+                                    <img
+                                        src="img/yellow-monster.webp"
+                                        alt="黄色いキャラクター"
+                                    />
+                                </figure>
                             </div>
-                            <div class="worry-about__image">
-                                <img src="img/yellow-monster.webp" alt="黄色いキャラクター" />
+                        </article>
+
+                        <article
+                            id="worry-about__item"
+                            class="worry-about__item"
+                        >
+                            <div class="worry-about__content">
+                                <figure class="worry-about__image">
+                                    <img
+                                        src="img/pink-girl.webp"
+                                        alt="ピンクのキャラクター"
+                                    />
+                                </figure>
+                                <div class="worry-about__text">
+                                    <h3 class="worry-about__number">
+                                        02<span>/03</span>
+                                    </h3>
+                                    <h4>
+                                        <span class="typing-text"></span>
+                                        <span class="typing-cursor"></span>
+                                    </h4>
+                                    <p>
+                                        わからないことだらけで1行打つだけにもうご飯準備しないといけない時間になっていたりしてモチベーションが下がります。
+                                    </p>
+                                </div>
                             </div>
+                        </article>
+
+                        <article class="worry-about__item">
+                            <div class="worry-about__content">
+                                <div class="worry-about__text">
+                                    <h3 class="worry-about__number">
+                                        03<span>/03</span>
+                                    </h3>
+                                    <h4>
+                                        <span class="typing-text"></span>
+                                        <span class="typing-cursor"></span>
+                                    </h4>
+                                    <p>
+                                        プログラミングを始めたいけど、何から始めればいいかわからない。
+                                    </p>
+                                </div>
+                                <figure class="worry-about__image">
+                                    <img
+                                        src="img/cool-boy.webp"
+                                        alt="クールなキャラクター"
+                                    />
+                                </figure>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </article>
+
+            <section id="go-meta-life" class="go-meta-life section-group">
+                <div class="go-meta-life__background">
+                    <div class="img-boxs">
+                        <img
+                            src="img/image_12.webp"
+                            alt="メタライフの背景画像1"
+                        />
+                        <img
+                            src="img/image_21.webp"
+                            alt="メタライフの背景画像2"
+                        />
+                        <img
+                            src="img/image_37.webp"
+                            alt="メタライフの背景画像3"
+                        />
+                        <img
+                            src="img/image_2.webp"
+                            alt="メタライフの背景画像4"
+                        />
+                        <img
+                            src="img/image_7.webp"
+                            alt="メタライフの背景画像5"
+                        />
+                        <img
+                            src="img/image_34.webp"
+                            alt="メタライフの背景画像6"
+                        />
+                        <img
+                            src="img/image_9.webp"
+                            alt="メタライフの背景画像7"
+                        />
+                        <img
+                            src="img/image_14.webp"
+                            alt="メタライフの背景画像8"
+                        />
+                        <img
+                            src="img/image_18.webp"
+                            alt="メタライフの背景画像9"
+                        />
+                        <img
+                            src="img/image_26.webp"
+                            alt="メタライフの背景画像10"
+                        />
+                        <img
+                            src="img/image_32.webp"
+                            alt="メタライフの背景画像11"
+                        />
+                    </div>
+                    <div class="floating-elements">
+                        <div class="floating-element floating-element--1"></div>
+                        <div class="floating-element floating-element--2"></div>
+                        <div class="floating-element floating-element--3"></div>
+                        <div class="floating-element floating-element--4"></div>
+                    </div>
+                </div>
+                <div class="go-meta-life__content">
+                    <div class="go-meta-life__image">
+                        <img src="img/meta-logo.webp" alt="メタライフの紹介" />
+                    </div>
+                    <p class="go-meta-life__text">
+                        でその悩み解決してみませんか?
+                    </p>
+                </div>
+            </section>
+
+            <!-- すず担当部分 -->
+            <section id="why-meta-life" class="why-meta-life section-group">
+                <h2 class="section__title">WHY META LIFE</h2>
+                <p class="section__subtitle">MetaLifeってどんなところ?</p>
+                <div class="sec-bg">
+                    <div class="contents">
+                        <div class="text">
+                            <p class="number">01<span>/03</span></p>
+                            <h3>同じ悩みを乗り越えた仲間がいる!</h3>
+                            <p>
+                                MetaLifeを利用している生徒さんはお互いに助け合う文化がありそこで各々のスキルアップや時間効率を上げている方が多く在籍しています
+                            </p>
+                        </div>
+                        <div class="img-deco">
+                            <img src="img/image_37.webp" />
+                        </div>
+                    </div>
+                    <div class="contents">
+                        <div class="img-deco">
+                            <img src="img/image_12.webp" />
+                        </div>
+                        <div class="text">
+                            <p class="number">02<span>/03</span></p>
+                            <h3>ハイレベルのあの講師がセミナーを開催!?</h3>
+                            <p>
+                                運営陣によるセミナーを毎週月曜日の21時に開催中!スキルアップを目指す方や今後のキャリアの相談なども受け付けています
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contents">
+                        <div class="text">
+                            <p class="number">03<span>/03</span></p>
+                            <h3>オフラインならではのイベントも...</h3>
+                            <p>
+                                毎月2回ほど交流を深めるために運営陣や講師陣と生徒さんとのイベントを開催し、横のつながりを増やすことを目指しています!
+                            </p>
+                        </div>
+                        <div class="img-deco">
+                            <img src="img/image_21.webp" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="chat-section" class="chat-section section-group">
+                <div class="chat-item">
+                    <img
+                        src="img/pink-usa.webp"
+                        alt=""
+                        class="chat-icon left"
+                    />
+                    <div class="chat-bubble-l">
+                        人見知りだしな…緊張するな…私なんか参加したら足を引っ張ってしまうかな…不安だな…
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img
+                        src="img/cool-boy.webp"
+                        alt=""
+                        class="chat-icon right"
+                    />
+                    <div class="chat-bubble-r">
+                        最初はみんな緊張するし、知らない人ばかりなのも同じです!大丈夫ですよ!
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img
+                        src="img/blue-ham.webp"
+                        alt=""
+                        class="chat-icon left"
+                    />
+                    <div class="chat-bubble-l">
+                        こんな初歩的なこと聞いていいのかな…？いまさら聞いたら変かなって思って…なんか勇気が出なくて…
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img
+                        src="img/pink-girl.webp"
+                        alt=""
+                        class="chat-icon right"
+                    />
+                    <div class="chat-bubble-r">
+                        大丈夫です!成長のペースは人それぞれなので、焦らず自分の歩幅で進んでいくのが一番いいです!
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img src="img/suzu.webp" alt="" class="chat-icon left" />
+                    <div class="chat-bubble-l">
+                        正直まだまだできないことばっかりだけど、それでも…ちょっとやってみたいって思えてきた!!
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img
+                        src="img/yellow-monster.webp"
+                        alt=""
+                        class="chat-icon right"
+                    />
+                    <div class="chat-bubble-r">
+                        “ちょっとやってみたい”その気持ちが、一番大事です!今のあなたならきっと動き出せます!!
+                    </div>
+                </div>
+            </section>
+
+            <!-- meta PRICE -->
+            <section id="price" class="price section-group">
+                <h2 class="section__title">META LIFE PRICE</h2>
+                <p class="section__subtitle">使用料金について</p>
+                <div class="price__content">
+                    <p class="price__text">
+                        毎月<span class="price__main">&yen;○○○</span>で参加可能
+                        &excl;
+                    </p>
+                </div>
+            </section>
+            <!-- Q&A -->
+            <section id="faq" class="faq section-group">
+                <h2 class="section__title">Question&amp;Ansewer</h2>
+                <p class="section__subtitle">よくある質問</p>
+                <div class="faq__list">
+                    <details class="faq__item">
+                        <summary class="faq__summary">
+                            <span class="faq__q-mark">Q</span
+                            >作業会が開講されている時間はいつでしょうか?
+                        </summary>
+                        <div class="faq__answer">
+                            <p class="faq__answer-content">
+                                <span class="faq__a-mark">A</span
+                                >毎日5:00〜25:00に開催しております。
+                            </p>
+                        </div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__summary">
+                            <span class="faq__q-mark">Q</span
+                            >講習等を受ける際は別途費用がかかりますか?
+                        </summary>
+                        <div class="faq__answer">
+                            <p class="faq__answer-content">
+                                <span class="faq__a-mark">A</span
+                                >基本オンラインで開催しているイベントでは費用はかかりません。
+                            </p>
+                        </div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__summary">
+                            <span class="faq__q-mark">Q</span
+                            >どの時間帯に参加者が多いとかありますか?
+                        </summary>
+                        <div class="faq__answer">
+                            <p class="faq__answer-content">
+                                <span class="faq__a-mark">A</span>
+                                土日より平日に参加している人が多いです。参考までに朝、昼、夜のピークを記載しておきます。<br />
+                                朝：6:00〜7:00 昼：12:00〜14:00 夜：20:30〜23:00
+                            </p>
+                        </div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__summary">
+                            <span class="faq__q-mark">Q</span
+                            >自分の教えてもらっている講師の人以外にメタで質問してもいいでしょうか?
+                        </summary>
+                        <div class="faq__answer">
+                            <p class="faq__answer-content">
+                                <span class="faq__a-mark">A</span
+                                >ここは作業会で学習を加速させる場所なので、遠慮なく質問して問題ないです！
+                            </p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+            <!-- VOICE -->
+            <section id="voice" class="voice section-group">
+                <div class="title-box">
+                    <h2 class="section__title">Voice</h2>
+                    <p class="section__subtitle">皆さんの声</p>
+                </div>
+                <ul class="voice__list">
+                    <li class="voice__item">
+                        <div class="voice__card">
+                            <h3 class="voice__card-title">
+                                <img
+                                    src="img/yellow-monster.webp"
+                                    class="voice__card-icon"
+                                    alt="黄色アイコン"
+                                />
+                                20代男性
+                            </h3>
+                            <p class="voice__card-text">
+                                作業会の存在は知っていましたが、気後れしてしまい参加はしていませんでした。
+                                しかしオフ会で「一人で悩むより学習が捗るよ」と背中を押されて参加しました。
+                                すると、周りの方々が気軽に話しかけてくれ、講師以外にもすぐ質問できる温かい環境がありました。
+                                おかげで今では、一人で悩んでいた頃とは比べ物にならないほど、学習速度もモチベーションも格段にアップしました。
+                            </p>
                         </div>
                     </li>
-
-                    <li class="worry-about__item">
-                        <div class="worry-about__content">
-                            <div class="worry-about__image">
-                                <img src="img/pink-girl.webp" alt="黄色いキャラクター" />
-                            </div>
-                            <div class="worry-about__text">
-                                <h3 class="worry-about__number">
-                                    02<span>/03</span>
-                                </h3>
-                                <h4>
-                                    <span class="typing-text"></span>
-                                    <span class="typing-cursor"></span>
-                                </h4>
-                                <p>
-                                    わからないことだらけで1行打つだけにもうご飯準備しないといけない時間になっていたりしてモチベーションが下がります。
-                                </p>
-                            </div>
+                    <li class="voice__item">
+                        <div class="voice__card">
+                            <h3 class="voice__card-title">
+                                <img
+                                    src="img/suzu.webp"
+                                    class="voice__card-icon"
+                                    alt="女性アイコン"
+                                />
+                                30代女性
+                            </h3>
+                            <p class="voice__card-text">
+                                在宅で副業がしたくてプログラミングを始めましたが、一人での学習は不安でした。
+                                そんな時、作業会に参加してみると、同じように頑張るママさんをはじめ、境遇の近い仲間たちに出会えました。
+                                そんな人たちとお話しして、「一人じゃないんだ」と実感できたことで、安心できました。
+                                今では一緒に作業をしながら、モチベーション高く、楽しく勉強を続けられています。
+                            </p>
                         </div>
                     </li>
-
-                    <li class="worry-about__item">
-                        <div class="worry-about__content">
-                            <div class="worry-about__text">
-                                <h3 class="worry-about__number">
-                                    03<span>/03</span>
-                                </h3>
-                                <h4>
-                                    <span class="typing-text"></span>
-                                    <span class="typing-cursor"></span>
-                                </h4>
-                                <p>
-                                    私の今後のキャリアはどうなっていくんだろう、みんな上手く行ってるのかな一人で今後も作業するのは寂しいしなんでも話せる仲間がいたらな。
-                                </p>
-                            </div>
-                            <div class="worry-about__image">
-                                <img src="img/cool-boy.webp" alt="黄色いキャラクター" />
-                            </div>
+                    <li class="voice__item">
+                        <div class="voice__card">
+                            <h3 class="voice__card-title">
+                                <img
+                                    src="img/cool-boy.webp"
+                                    class="voice__card-icon"
+                                    alt="男性アイコン"
+                                />
+                                30代男性
+                            </h3>
+                            <p class="voice__card-text">
+                                参加する前は、本業の多忙や体調不良で、学習のモチベーションが低下していました。
+                                その際にに案内があった「初心者講習会」に参加したら、同じ悩みを抱えている人が多くて驚きました！
+                                そこから作業会もに参加し、月曜のセミナーの内容を実践したら学習がとても捗りました！
+                                是非、一人で悩む方に参加してみてほしいです！
+                            </p>
                         </div>
                     </li>
                 </ul>
-            </div>
-        </article>
+            </section>
+            <button type="button" class="btn">
+                <img
+                    src="img/meta-logo.webp"
+                    class="btn__image"
+                    alt="Meta ロゴ"
+                />
+                <span class="btn__text">に参加する</span>
+            </button>
+        </main>
 
-        <section class="go-meta-life">
-            <div class="go-meta-life__background">
-                <div class="img-boxs">
-                    <img src="img/image_12.webp" alt="メタライフの背景画像1">
-                    <img src="img/image_21.webp" alt="メタライフの背景画像2">
-                    <img src="img/image_37.webp" alt="メタライフの背景画像3">
-                    <img src="img/image_2.webp" alt="メタライフの背景画像4">
-                    <img src="img/image_7.webp" alt="メタライフの背景画像5">
-                    <img src="img/image_34.webp" alt="メタライフの背景画像6">
-                    <img src="img/image_9.webp" alt="メタライフの背景画像7">
-                    <img src="img/image_14.webp" alt="メタライフの背景画像8">
-                    <img src="img/image_18.webp" alt="メタライフの背景画像9">
-                    <img src="img/image_26.webp" alt="メタライフの背景画像10">
-                    <img src="img/image_32.webp" alt="メタライフの背景画像11">
-                </div>
-                <div class="floating-elements">
-                    <div class="floating-element floating-element--1"></div>
-                    <div class="floating-element floating-element--2"></div>
-                    <div class="floating-element floating-element--3"></div>
-                    <div class="floating-element floating-element--4"></div>
-                </div>
+        <footer>
+            <div class="copyright">
+                <p>&copy; 2024 Mitubachi. All rights reserved.</p>
             </div>
-            <div class="go-meta-life__content">
-                <div class="go-meta-life__image">
-                    <img src="img/meta-logo.webp" alt="メタライフの紹介">
-                </div>
-                <p class="go-meta-life__text">でその悩み解決してみませんか?</p>
-            </div>
-        </section>
+        </footer>
 
-        <!-- すず担当部分 -->
-        <section class="why-meta-life">
-            <h2 class="section-title">WHY META LIFE</h2>
-            <p class="sub-title">MetaLifeってどんなところ?</p>
-            <div class="sec-bg">
-                <div class="contents">
-                    <div class="text">
-                        <p class="number">01<span>/03</span></p>
-                        <h3>同じ悩みを乗り越えた仲間がいる!</h3>
-                        <p>
-                            MetaLifeを利用している生徒さんはお互いに助け合う文化がありそこで各々のスキルアップや時間効率を上げている方が多く在籍しています
-                        </p>
-                    </div>
-                    <div class="img-deco"><img src="img/image_37.webp"></div>
-                </div>
-                <div class="contents">
-                    <div class="img-deco"><img src="img/image_12.webp"></div>
-                    <div class="text">
-                        <p class="number">02<span>/03</span></p>
-                        <h3>ハイレベルのあの講師がセミナーを開催!?</h3>
-                        <p>
-                            運営陣によるセミナーを毎週月曜日の21時に開催中!スキルアップを目指す方や今後のキャリアの相談なども受け付けています
-                        </p>
-                    </div>
-                </div>
-                <div class="contents">
-                    <div class="text">
-                        <p class="number">03<span>/03</span></p>
-                        <h3>オフラインならではのイベントも...</h3>
-                        <p>
-                            毎月2回ほど交流を深めるために運営陣や講師陣と生徒さんとのイベントを開催し、横のつながりを増やすことを目指しています!
-                        </p>
-                    </div>
-                    <div class="img-deco"><img src="img/image_21.webp"></div>
-                </div>
-            </div>
-        </section>
-        <section class="chat-section">
-            <div class="chat-item">
-                <img src="img/pink-usa.webp" alt="" class="chat-icon left">
-                <div class="chat-bubble-l">人見知りだしな…緊張するな…私なんか参加したら足を引っ張ってしまうかな…不安だな…</div>
-            </div>
-            <div class="chat-item">
-                <img src="img/cool-boy.webp" alt="" class="chat-icon right">
-                <div class="chat-bubble-r">最初はみんな緊張するし、知らない人ばかりなのも同じです!大丈夫ですよ!</div>
-            </div>
-            <div class="chat-item">
-                <img src="img/blue-ham.webp" alt="" class="chat-icon left">
-                <div class="chat-bubble-l">こんな初歩的なこと聞いていいのかな…？いまさら聞いたら変かなって思って…なんか勇気が出なくて…</div>
-            </div>
-            <div class="chat-item">
-                <img src="img/pink-girl.webp" alt="" class="chat-icon right">
-                <div class="chat-bubble-r">大丈夫です!成長のペースは人それぞれなので、焦らず自分の歩幅で進んでいくのが一番いいです!</div>
-            </div>
-            <div class="chat-item">
-                <img src="img/suzu.webp" alt="" class="chat-icon left">
-                <div class="chat-bubble-l">正直まだまだできないことばっかりだけど、それでも…ちょっとやってみたいって思えてきた!!</div>
-            </div>
-            <div class="chat-item">
-                <img src="img/yellow-monster.webp" alt="" class="chat-icon right">
-                <div class="chat-bubble-r">“ちょっとやってみたい”その気持ちが、一番大事です!今のあなたならきっと動き出せます!!</div>
-            </div>
-        </section>
-
-            
-        <!-- meta PRICE -->
-        <section class="price">
-                <h2 class="section-title">META LIFE PRICE</h2>
-                <p class="sub-title">使用料金について</p>
-            </div>
-            <div class="price__content">
-                <p class="price__text">毎月<span class="price__main">&yen;○○○</span>で参加可能 &excl;</p>
-            </div>
-        </section>
-        <!-- Q&A -->
-        <section class="faq">
-            <h2 class="section-title">Question&amp;Ansewer</h2>
-            <p class="sub-title">よくある質問</p>
-            <div class="faq__list">
-                <details class="faq__item">
-                    <summary class="faq__summary"><span class="faq__q-mark">Q</span>作業会が開講されている時間はいつでしょうか?</summary>
-                    <div class="faq__answer">
-                        <p class="faq__answer-content"><span class="faq__a-mark">A</span>毎日5:00〜25:00に開催しております。</p>
-                    </div>
-                </details>
-                <details class="faq__item">
-                    <summary class="faq__summary"><span class="faq__q-mark">Q</span>講習等を受ける際は別途費用がかかりますか?</summary>
-                    <div class="faq__answer">
-                        <p class="faq__answer-content"><span class="faq__a-mark">A</span>基本オンラインで開催しているイベントでは費用はかかりません。
-                        </p>
-                    </div>
-                </details>
-                <details class="faq__item">
-                    <summary class="faq__summary"><span class="faq__q-mark">Q</span>どの時間帯に参加者が多いとかありますか?</summary>
-                    <div class="faq__answer">
-                        <p class="faq__answer-content"><span class="faq__a-mark">A</span>
-                            土日より平日に参加している人が多いです。参考までに朝、昼、夜のピークを記載しておきます。<br>
-                            朝：6:00〜7:00 昼：12:00〜14:00 夜：20:30〜23:00
-                        </p>
-                    </div>
-                </details>
-                <details class="faq__item">
-                    <summary class="faq__summary"><span class="faq__q-mark">Q</span>自分の教えてもらっている講師の人以外にメタで質問してもいいでしょうか?
-                    </summary>
-                    <div class="faq__answer">
-                        <p class="faq__answer-content"><span
-                                class="faq__a-mark">A</span>ここは作業会で学習を加速させる場所なので、遠慮なく質問して問題ないです！</p>
-                    </div>
-                </details>
-            </div>
-        </section>
-        <!-- VOICE -->
-        <section class="voice">
-            <div class="title-box">
-            <h2 class="section-title">Voice</h2>
-            <p class="sub-title">皆さんの声</p>
-            </div>
-            <ul class="voice__list">
-                <li class="voice__item">
-                    <div class="voice__card">
-                        <h3 class="voice__card-title">
-                            <img src="img/yellow-monster.webp" class="voice__card-icon" alt="黄色アイコン">
-                            20代男性
-                        </h3>
-                        <p class="voice__card-text">
-                            作業会の存在は知っていましたが、気後れしてしまい参加はしていませんでした。
-                            しかしオフ会で「一人で悩むより学習が捗るよ」と背中を押されて参加しました。
-                            すると、周りの方々が気軽に話しかけてくれ、講師以外にもすぐ質問できる温かい環境がありました。
-                            おかげで今では、一人で悩んでいた頃とは比べ物にならないほど、学習速度もモチベーションも格段にアップしました。
-                        </p>
-                    </div>
-                </li>
-                <li class="voice__item">
-                    <div class="voice__card">
-                        <h3 class="voice__card-title">
-                            <img src="img/suzu.webp" class="voice__card-icon" alt="女性アイコン">
-                            30代女性
-                        </h3>
-                        <p class="voice__card-text">
-                            在宅で副業がしたくてプログラミングを始めましたが、一人での学習は不安でした。
-                            そんな時、作業会に参加してみると、同じように頑張るママさんをはじめ、境遇の近い仲間たちに出会えました。
-                            そんな人たちとお話しして、「一人じゃないんだ」と実感できたことで、安心できました。
-                            今では一緒に作業をしながら、モチベーション高く、楽しく勉強を続けられています。
-                        </p>
-                    </div>
-                </li>
-                <li class="voice__item">
-                    <div class="voice__card">
-                        <h3 class="voice__card-title">
-                            <img src="img/cool-boy.webp" class="voice__card-icon" alt="男性アイコン">
-                            30代男性
-                        </h3>
-                        <p class="voice__card-text">
-                            参加する前は、本業の多忙や体調不良で、学習のモチベーションが低下していました。
-                            その際にに案内があった「初心者講習会」に参加したら、同じ悩みを抱えている人が多くて驚きました！
-                            そこから作業会もに参加し、月曜のセミナーの内容を実践したら学習がとても捗りました！
-                            是非、一人で悩む方に参加してみてほしいです！
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <button type="button" class="btn">
-            <img src="img/meta-logo.webp" class="btn__image" alt="Meta ロゴ">
-            <span class="btn__text">に参加する</span>
-        </button>
-    </main>
-    <footer>
-        <p class="copyright">&copy2025 team mistubachi hacchi</p>
-    </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!--必ず下のコード入れること（swiper使用のため-->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        ></script>
+        <!--必ず下のコード入れること（swiper使用のため-->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>
