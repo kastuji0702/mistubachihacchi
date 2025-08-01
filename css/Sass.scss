@@ -1,7 +1,5 @@
-// 変数ファイルをインポート
 @import "base/variables";
 
-// section__title用のmixin（ファイル先頭に移動）
 @mixin section-title-style($title-color, $subtitle-color) {
     .section__title {
         font-size: 4rem;
@@ -37,7 +35,7 @@
         font-size: 1.2rem;
         color: $subtitle-color;
         margin-bottom: 3rem;
-        margin-left: 4%; // 左マージンを追加
+        margin-left: 4%;
     }
 }
 
