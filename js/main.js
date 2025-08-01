@@ -590,14 +590,22 @@ document.addEventListener("DOMContentLoaded", () => {
 // voiceの設定
 $(document).ready(function () {
     $(".voice__list").slick({
+        // --- デフォルトの表示設定 ---
         centerMode: true,
-        centerPadding: "25%",
+        centerPadding: "33%",
         slidesToShow: 1,
         arrows: true,
         dots: true,
         infinite: true,
 
+        // --- レスポンシブ設定 ---
         responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    centerPadding: "25%",
+                },
+            },
             {
                 breakpoint: 769,
                 settings: {
